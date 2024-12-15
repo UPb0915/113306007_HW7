@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<head>
+    <title>HW7</title>
+    <link rel="stylesheet" href="113306007_HW7.css">
+</head>
+<body>
+    <div class="main-container">
+        
+        <div class="left-panel">
+            
+            <div class="photo-panel">
+                <img src="chillguy.jpg" alt="Profile_picture">
+            </div>
+            <h1 id="display-name">Jeter</h1>
+            <button id="edit-name-btn">Edit</button>
+
+            
+            <div class="text-content">
+                <section class="about-me">
+                    <h2>ABOUT</h2>
+                    <p>
+                        I am a freshman in the Department of Management Information Systems at National ChengChi University. 
+                        I am very interested in studying programming and computer science fundamentals. 
+                        I have experience in writing Java, HTML, CSS, JavaScript, and Python.
+                    </p>
+                </section>
+                <section class="contact-info">
+                    <h2>CONTACT</h2>
+                    <p>
+                        Email: jetersapo94915@gmail.com<br>
+                        Phone: 0800-000-000<br><br><br>
+                        <img src="logo_en.png" alt="NCCU_Icon" width="200px" height=auto>
+                    </p>
+                </section>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <section class="education">
+                <h2>Education</h2>
+                <div class="timeline">
+                    <div class="entry">
+                        <span class="year">2024</span>
+                        <span class="description">Started at NCCU as a freshman.</span>
+                    </div>
+                    <div class="entry">
+                        <span class="year">2023</span>
+                        <span class="description">Got 10 points in the monthly math test, but luckily didn't get flunked.</span>
+                    </div>
+                    <div class="entry">
+                        <span class="year">2021</span>
+                        <span class="description">Only got an A in math in the high school entrance examination.</span>
+                    </div>
+                    <div class="entry">
+                        <span class="year">2015</span>
+                        <span class="description">Scored 77 points in the elementary school mathematics test.</span>
+                    </div>
+                    <div class="entry">
+                        <span class="year">2005</span>
+                        <span class="description">Born in Yunlin.</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="homework-list">
+                <h2>Homework List</h2>
+                <br>HW1 - <a href="https://github.com/UPb0915/HW1.git">https://github.com/UPb0915/HW1.git</a><br>
+                <br>HW2 - <a href="https://github.com/UPb0915/HW2-113306007_----_---.git">https://github.com/UPb0915/HW2-113306007_----_---.git</a><br>
+                <br>HW3 - <a href="https://github.com/UPb0915/113306007_LAB1.git">https://github.com/UPb0915/113306007_LAB1.git</a><br>
+                <br>HW4 - <a href="https://github.com/UPb0915/113306007_HW4.git">https://github.com/UPb0915/113306007_HW4.git</a><br>
+                <br>HW5 - <a href="https://github.com/UPb0915/113306007_HW5.git">https://github.com/UPb0915/113306007_HW5.git</a><br>
+                <br>HW6 - <a href="https://github.com/UPb0915/113306007_HW6.git">https://github.com/UPb0915/113306007_HW6.git</a><br>
+            </section>
+
+            <section class="favorite-music">
+                <h2>Favorite Music</h2>
+                <div class="album-covers" id="music-list">
+                    <div class="music-item">
+                        <a href="https://www.youtube.com/watch?v=BXsFnVQverk&list=PLlmRxTvUeUVfCGJQVwZiF34puwZYe68oJ">
+                            <img src="萬青.jpg" alt="《萬能青年旅店》">
+                        </a>
+                        <p>杀死那个石家庄人</p>
+                    </div>
+                    <div class="music-item">
+                        <a href="https://www.youtube.com/watch?v=qmg8YYmShH4">
+                            <img src="wowaka.jpg" alt="《UNHAPPY REFRAIN》">
+                        </a>
+                        <p>テノヒラ</p>
+                    </div>
+                    <div class="music-item">
+                        <a href="https://www.youtube.com/watch?v=ry3Tupx4BL4">
+                            <img src="yorushika.jpg" alt="《だから僕は音楽を辞めた》">
+                        </a>
+                        <p>パレード</p>
+                    </div>
+                    <div class="music-item">
+                        <a href="https://www.youtube.com/watch?v=yq5KovCxq8o">
+                            <img src="草東.jpg" alt="瓦合">
+                        </a>
+                        <p>床</p>
+                    </div>
+                </div>
+                <button id="add-music-btn">Add Music</button>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        const nameHeading = document.getElementById("display-name");
+        const editNameButton = document.getElementById("edit-name-btn");
+        let isEditing = false;
+
+        editNameButton.addEventListener("click", () => {
+            if (isEditing) {
+                const inputField = document.querySelector("#name-input");
+                nameHeading.textContent = inputField.value || "Jeter";
+                inputField.remove();
+                editNameButton.textContent = "Edit";
+            } else {
+                const inputField = document.createElement("input");
+                inputField.type = "text";
+                inputField.id = "name-input";
+                inputField.value = nameHeading.textContent;
+                nameHeading.textContent = "";
+                nameHeading.appendChild(inputField);
+                editNameButton.textContent = "Save";
+            }
+            isEditing = !isEditing;
+        });
+
+
+        const addMusicButton = document.getElementById("add-music-btn");
+        const musicList = document.getElementById("music-list");
+
+        let isFormActive = false;
+
+        addMusicButton.addEventListener("click", () => {
+            if (isFormActive) return;
+            isFormActive = true;
+            addMusicButton.style.display = "none"; 
+
+            const form = document.createElement("form");
+            form.classList.add("music-form");
+            form.innerHTML = `
+                <label>
+                    Music Link:
+                    <input type="url" id="music-link" required />
+                </label><br>
+                <label>
+                    Music Name:
+                    <input type="text" id="music-name" required />
+                </label><br>
+                <button type="submit">Submit</button>
+                <button type="reset">Cancel</button>
+            `;
+
+            form.addEventListener("submit", (event) => {
+                event.preventDefault();
+                const musicLink = document.getElementById("music-link").value;
+                const musicName = document.getElementById("music-name").value;
+
+                if (musicLink && musicName) {
+                    const musicItem = document.createElement("div");
+                    musicItem.classList.add("music-item");
+                    musicItem.innerHTML = `
+                        <a href="${musicLink}" target="_blank">
+                            <img src="orangestar.jpg" alt="《SEASIDE SOLILOQUIES》">
+                        </a>
+                        <p>${musicName}</p>
+                    `;
+                    musicList.appendChild(musicItem);
+
+                    form.remove();
+                    isFormActive = false;
+                    addMusicButton.style.display = "block";
+                }
+            });
+
+            form.addEventListener("reset", () => {
+                form.remove();
+                isFormActive = false;
+                addMusicButton.style.display = "block"; 
+            });
+
+            musicList.appendChild(form);
+        });
+    </script>
+</body>
+</html>
+

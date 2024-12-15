@@ -1,0 +1,143 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #86cecb;
+  font-family: Arial, sans-serif;
+}
+
+.main-container {
+  display: flex;
+  max-width: 900px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.left-panel {
+  width: 330px;
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  height: 1150px; 
+  border-right: 1px solid #ddd; 
+}
+
+.photo-panel {
+  height: 50%; 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.photo-panel img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.left-panel  {
+  text-align: center;
+}
+
+.text-content {
+  padding: 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.nccu-icon {
+  width: 200px;
+  height: auto;
+
+}
+
+.right-panel {
+  width: 540px;
+  padding: 20px;
+
+}
+
+.right-panel section {
+  margin-bottom: 20px;
+}
+
+.right-panel h2 {
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.timeline .entry {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.year {
+  font-weight: bold;
+  color: #555;
+}
+
+
+.homework-list ul {
+  list-style: none;
+}
+
+.homework-list li a {
+  text-decoration: none;
+  color: #0073e6;
+  transition: color 0.3s;
+   text-align: left;
+}
+
+.homework-list li a:hover {
+  color: #005bb5;
+}
+
+.album-covers {
+  display: flex;               
+  flex-wrap: wrap;            
+  justify-content: flex-start; 
+  gap: 15px;                   
+  margin-bottom: 20px;         
+}
+
+.music-item {
+  display: flex;               
+  flex-direction: column;      
+  align-items: center;        
+  text-align: center;
+  width: 80px;               
+  margin: 5px;                 
+}
+
+.music-item img {
+  width: 60px;                 
+  height: 60px;
+  object-fit: cover;           
+  transition: transform 0.3s;
+}
+
+.music-item img:hover {
+  transform: scale(1.1);      
+}
+
+.music-form {
+  display: flex;
+  flex-direction: column;      
+  align-items: center;         
+  gap: 10px;                   
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  width: 100%;                
+  box-sizing: border-box;
+}
